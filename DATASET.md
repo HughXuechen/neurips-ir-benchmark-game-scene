@@ -2,7 +2,7 @@
 
 The Scene-Level Grounding Benchmark dataset is released separately on HuggingFace:
 
-**URL**: `<DATASET_URL>`
+**URL**: `https://huggingface.co/datasets/anon-neurips-2026-0502/scene-level-grounding-benchmark`
 
 The dataset contains:
 - 26 goal-pattern markdown specifications (`patterns/`)

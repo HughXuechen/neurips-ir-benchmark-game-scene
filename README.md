@@ -10,7 +10,7 @@ Benchmark for Executable Game Scene Synthesis".
 git clone <this-repo>
 cd <repo>
 uv sync
-# Download dataset from <DATASET_URL> and unpack as ./data/
+# Download dataset from https://huggingface.co/datasets/anon-neurips-2026-0502/scene-level-grounding-benchmark and unpack as ./data/
 bash reproduction/run_eval_only.sh
 # Compare results/neurips/metrics/summary.md to reproduction/expected_summary.md
 ```
@@ -41,7 +41,7 @@ reproduction/             Reproduction scripts and expected outputs
 ## Dataset
 
 The patterns, ground truth, IRs, and 858 generation outputs are released
-separately on HuggingFace at `<DATASET_URL>`; see `DATASET.md`.
+separately on HuggingFace at `https://huggingface.co/datasets/anon-neurips-2026-0502/scene-level-grounding-benchmark`; see `DATASET.md`.
 
 ## Requirements
 
