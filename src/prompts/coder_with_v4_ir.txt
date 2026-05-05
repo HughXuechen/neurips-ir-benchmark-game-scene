@@ -1,0 +1,48 @@
+[pattern: <PATTERN_ID>]
+[method: with_v4_ir]
+
+Generate a single C# file containing a Unity MonoBehaviour called
+GameBuilder that, in its Awake() method, programmatically creates
+an entire playable scene from scratch. Also define all gameplay
+MonoBehaviour classes in the same file.
+
+The user will attach GameBuilder to an empty GameObject and press
+Play. The scene must build itself at runtime — no Editor API, no
+MenuItem, no UnityEditor namespace.
+
+Requirements:
+- GameBuilder.Awake() creates all GameObjects, adds all components,
+  sets all field values, configures physics and rendering — exactly
+  as specified in the IR below.
+- Define all MonoBehaviour classes inline in the same file (including
+  singleton patterns where singleton_calls/singleton_writes appear).
+- The IR has a "scene" section listing every GameObject with its
+  components and a "transform" property (position, scale, rotation).
+  Create ALL of them: Player, Camera, Boundary walls, obstacles, etc.
+- For SpriteRenderer: create a 1×1 white Texture2D sprite
+  programmatically and tint it with the m_Color values from the IR.
+  IMPORTANT: pass pixelsPerUnit = 1 to Sprite.Create() so that
+  1 pixel = 1 world unit. The default (100) makes sprites invisible.
+- At the very start of GameBuilder.Awake(), destroy any pre-existing
+  Camera and AudioListener objects so the scene works regardless of
+  which scene template the user started from.
+- Do NOT use AddComponent<Transform>() — every GameObject already
+  has one. Use gameObject.transform.position etc.
+- Do NOT use any UnityEditor API. No [MenuItem], no AssetDatabase,
+  no EditorSceneManager. This must run in Play mode.
+- Do NOT create Canvas, CanvasScaler, TextMeshPro, or UI elements
+  unless the IR explicitly includes them.
+- Always include ALL necessary using statements at the top of the file.
+  Common ones: UnityEngine, UnityEngine.SceneManagement, System.Collections.
+  If the code calls SceneManager, add using UnityEngine.SceneManagement.
+- Target Unity 2022.2. For Rigidbody2D drag, use "drag" (not "linearDrag"
+  or "linearDamping" — those do not exist in this version).
+- Make all MonoBehaviour lifecycle methods (Awake, Start, Update, OnTriggerEnter2D,
+  etc.) public, so GameBuilder can call them if needed.
+- Every GameObject with a SpriteRenderer MUST have a programmatic sprite assigned
+  with the correct color — including prefabs and spawned objects. Do not leave
+  any SpriteRenderer without a sprite.
+- Output only raw C# code. No explanation.
+
+IR:
+<IR_JSON>

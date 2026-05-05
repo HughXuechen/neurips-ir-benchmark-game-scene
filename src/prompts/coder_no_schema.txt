@@ -1,0 +1,37 @@
+[pattern: <PATTERN_ID>]
+[method: no_schema]
+
+Generate a single C# file containing a Unity MonoBehaviour called
+GameBuilder that, in its Awake() method, programmatically creates
+an entire playable scene from scratch based on the game description
+below. Also define all gameplay MonoBehaviour classes in the same file.
+
+The user will attach GameBuilder to an empty GameObject and press
+Play. The scene must build itself at runtime — no Editor API, no
+MenuItem, no UnityEditor namespace.
+
+Requirements:
+- GameBuilder.Awake() creates all GameObjects, adds all components,
+  sets all field values, configures physics and rendering.
+- Define all MonoBehaviour classes inline in the same file.
+- For SpriteRenderer: create a 1×1 white Texture2D sprite
+  programmatically and tint with color. Pass pixelsPerUnit = 1
+  to Sprite.Create() so 1 pixel = 1 world unit.
+- At the very start of GameBuilder.Awake(), destroy any pre-existing
+  Camera and AudioListener objects.
+- Do NOT use AddComponent<Transform>() — every GameObject already
+  has one. Use gameObject.transform.position etc.
+- Do NOT use any UnityEditor API. No [MenuItem], no AssetDatabase,
+  no EditorSceneManager. This must run in Play mode.
+- Do NOT create Canvas, CanvasScaler, TextMeshPro, or UI elements.
+- Always include ALL necessary using statements at the top of the file.
+- Target Unity 2022.2. For Rigidbody2D drag, use "drag" (not "linearDrag"
+  or "linearDamping" — those do not exist in this version).
+- Make all MonoBehaviour lifecycle methods (Awake, Start, Update,
+  OnTriggerEnter2D, etc.) public.
+- Every GameObject with a SpriteRenderer MUST have a programmatic
+  sprite assigned with a color.
+- Output only raw C# code. No explanation.
+
+Game description:
+<PATTERN_MD>
