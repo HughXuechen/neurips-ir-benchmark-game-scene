@@ -1,7 +1,7 @@
 # Mage — Code
 
 Anonymous code release for the NeurIPS 2026 Evaluation & Datasets submission
-"Mage: Multi-Axis Evaluation of LLM-Generated Executable Game Scenes."
+"Mage: Multi-Axis Evaluation of LLM-Generated Executable Game Scenes" (originally named "Scene-Level Grounding for LLM Code Generation: A Multi-Granularity IR Benchmark for Executable Game Scene Synthesis")
 
 ## Quickstart (reproduce Tables 1, 3, 4 from prerecorded logs, no Unity needed)
 
