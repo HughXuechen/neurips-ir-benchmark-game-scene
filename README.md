@@ -1,8 +1,7 @@
-# Scene-Level Grounding Benchmark — Code
+# Mage — Code
 
 Anonymous code release for the NeurIPS 2026 Evaluation & Datasets submission
-"Scene-Level Grounding for LLM Code Generation: A Multi-Granularity IR
-Benchmark for Executable Game Scene Synthesis".
+"Mage: Multi-Axis Evaluation of LLM-Generated Executable Game Scenes."
 
 ## Quickstart (reproduce Tables 1, 3, 4 from prerecorded logs, no Unity needed)
 
